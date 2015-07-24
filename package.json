@@ -1,0 +1,25 @@
+{
+  "name": "gobble-postcss",
+  "version": "0.1.0",
+  "description": "Post-process CSS files with gobble and postcss",
+  "author": "Rich Harris",
+  "license": "MIT",
+  "repository": "https://github.com/gobblejs/gobble-postcss",
+  "keywords": [
+    "gobble",
+    "gobble-plugin"
+  ],
+  "files": [
+    "index.js",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "echo \"tests coming soon...\"",
+    "prepublish": "npm test"
+  },
+  "dependencies": {
+    "glob": "^5.0.14",
+    "postcss": "^4.1.16",
+    "sander": "^0.3.4"
+  }
+}
