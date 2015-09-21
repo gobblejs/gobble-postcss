@@ -26,6 +26,8 @@ module.exports = function postcss ( inputdir, outputdir, options ) {
 			options.dest :
 			identity;
 
+	var map = options.map && options.map.inline === false;
+
 	var promises = files.map( function ( src ) {
 		var dest = getDest( src );
 
@@ -33,10 +35,14 @@ module.exports = function postcss ( inputdir, outputdir, options ) {
 			.then( function ( css ) {
 				return processor.process( css, {
 					from: path.join( inputdir, src ),
-					to: path.join( outputdir, dest )
+					to: path.join( outputdir, dest ),
+					map: options.map
 				}).then( function ( result ) {
-					// TODO sourcemaps
-					return sander.writeFile( outputdir, dest, result.css );
+					var promises = [ sander.writeFile( outputdir, dest, result.css ) ];
+					if ( map ) {
+						promises.push( sander.writeFile( outputdir, dest + '.map', result.css ) );
+					}
+					return Promise.all( promises );
 				});
 			});
 	});
