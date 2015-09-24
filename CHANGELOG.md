@@ -1,5 +1,9 @@
 # gobble-postcss changelog
 
+## 0.2.1
+
+* Write sourcemap to .map file! (typo)
+
 ## 0.2.0
 
 * Update postcss version
