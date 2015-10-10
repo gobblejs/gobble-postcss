@@ -1,5 +1,9 @@
 # gobble-postcss changelog
 
+## 0.2.2
+
+* Fix typo causing `options.dest` error to throw in unexpected situations
+
 ## 0.2.1
 
 * Write sourcemap to .map file! (typo)

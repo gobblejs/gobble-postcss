@@ -16,7 +16,7 @@ module.exports = function postcss ( inputdir, outputdir, options ) {
 		cwd: inputdir
 	});
 
-	if ( typeof options.dest === 'string' && ( typeof options.src !== 'string' || !~options.src.indexOf( '*' ) ) ) {
+	if ( typeof options.dest === 'string' && ( typeof options.src !== 'string' || ~options.src.indexOf( '*' ) ) ) {
 		throw new Error( 'options.dest can only be a string if options.src is a string, and not a glob pattern' );
 	}
 
