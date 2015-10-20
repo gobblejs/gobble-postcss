@@ -40,7 +40,7 @@ module.exports = function postcss ( inputdir, outputdir, options ) {
 				}).then( function ( result ) {
 					var promises = [ sander.writeFile( outputdir, dest, result.css ) ];
 					if ( map ) {
-						promises.push( sander.writeFile( outputdir, dest + '.map', result.map ) );
+						promises.push( sander.writeFile( outputdir, dest + '.map', String( result.map ) ) );
 					}
 					return Promise.all( promises );
 				});
