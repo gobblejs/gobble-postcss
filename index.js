@@ -26,7 +26,8 @@ module.exports = function postcss ( inputdir, outputdir, options ) {
 			options.dest :
 			identity;
 
-	var map = options.map && options.map.inline === false;
+	if ( !( 'map' in options ) ) options.map = true;
+	var separateMapFile = options.map && options.map.inline === false;
 
 	var promises = files.map( function ( src ) {
 		var dest = getDest( src );
@@ -39,7 +40,7 @@ module.exports = function postcss ( inputdir, outputdir, options ) {
 					map: options.map
 				}).then( function ( result ) {
 					var promises = [ sander.writeFile( outputdir, dest, result.css ) ];
-					if ( map ) {
+					if ( separateMapFile ) {
 						promises.push( sander.writeFile( outputdir, dest + '.map', String( result.map ) ) );
 					}
 					return Promise.all( promises );
