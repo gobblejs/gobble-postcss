@@ -1,5 +1,9 @@
 # gobble-postcss changelog
 
+## 0.3.0
+
+* Create inline sourcemap by default
+
 ## 0.2.3
 
 * Coerce sourcemaps to string

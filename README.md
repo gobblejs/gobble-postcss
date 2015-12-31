@@ -32,7 +32,11 @@ module.exports = gobble( 'src/styles' ).transform( 'postcss', {
   dest: function ( src ) {
     // e.g. main.css -> main.min.css
 	return src.replace( '.css', '.min.css' );
-  }
+  },
+
+  // sourcemap options. `true` (default) means the sourcemap will
+  // be inlined, `false` means no sourcemap
+  map: false
 });
 ```
 
