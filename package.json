@@ -18,8 +18,8 @@
     "prepublish": "npm test"
   },
   "dependencies": {
-    "glob": "^5.0.15",
-    "postcss": "^5.0.9",
-    "sander": "^0.3.8"
+    "glob": "^7.0.3",
+    "postcss": "^5.0.21",
+    "sander": "^0.5.1"
   }
 }
